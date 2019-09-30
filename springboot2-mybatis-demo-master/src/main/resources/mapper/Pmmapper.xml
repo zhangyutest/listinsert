@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.winterchen.mapper.Pmmapper" >
+
+
+
+    <insert id="addlistpm"  >
+
+        insert into performance_memorydata(id,page,curTime,pssTotal,privateDirty,privateClean,swapPssDirty,heapSize,heapAlloc,heapFree,viewNo,activityNo,curPid,logPath,hprofPath,isPass,machineName,checkDate,checkTime)
+        values <foreach collection="list" item="it" index="index"
+                        separator=",">
+        (
+        #{it.id},
+        #{it.page},
+        #{it.curTime},
+        #{it.pssTotal},
+        #{it.privateDirty},
+        #{it.privateClean},
+        #{it.swapPssDirty},
+        #{it.heapSize},
+        #{it.heapAlloc},
+        #{it.heapFree},
+        #{it.viewNo},
+        #{it.activityNo},
+        #{it.curPid},
+        #{it.logPath},
+        #{it.hprofPath},
+        #{it.isPass},
+        #{it.machineName},
+        #{it.checkDate},
+        #{it.checkTime}
+
+        )
+    </foreach>
+    </insert>
+
+
+</mapper>
